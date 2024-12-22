@@ -11,6 +11,7 @@ public class ProjectTest extends BaseTest {
         projectsPage.waitTillOpened();
         projectsPage.clickOnCreateNewProjectButton();
         projectsPage.addProject("Nataly");
+        projectsPage.projectIsCreated();
         testCaseTest.createTestCase();
         projectsPage.openProjectsPage();
         projectsPage.removeProject("Nataly");

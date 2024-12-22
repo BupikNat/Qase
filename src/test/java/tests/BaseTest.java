@@ -21,7 +21,6 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
-
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");  //можно прописать только через опции Selenium, в Селениде нет
         options.addArguments("--disable-notifications");

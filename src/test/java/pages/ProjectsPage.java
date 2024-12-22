@@ -12,7 +12,6 @@ public class ProjectsPage {
             REMOVE_BUTTON = "[data-testid=remove]",
             DELETE_PROJECT_BUTTON = "//button[.//span[text()='Delete project']]";
 
-
     public void openPage() {
         open("projects");
     }
@@ -29,6 +28,9 @@ public class ProjectsPage {
         $x(PROJECT_NAME).sendKeys(newProjectName);
         $(byText("Public")).click();
         $(byText("Create project")).click();
+    }
+
+    public void projectIsCreated() {
         $(byText("Nataly")).shouldBe(Condition.visible);
     }
 
@@ -37,7 +39,6 @@ public class ProjectsPage {
     }
 
     public void removeProject(String projectName) {
-
         $(byText(projectName))
                 .ancestor("tr")
                 .find("button[aria-label='Open action menu']")

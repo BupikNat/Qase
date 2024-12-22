@@ -27,13 +27,11 @@ public class TestCasePage {
             SAVE_BUTTON = "//*[text()='Save']",
             CREATED_CASE_NAME = "//a[@href='/case/NATALY-1']";
 
-
     public void clickOnCaseButton() {
         $(byText("Case")).click();
     }
 
     public void setupTestCase(String title) {
-
         $x(TITLE).sendKeys(title);
         $x(CLICK_PRIORITY_DROPDOWN).click();
         $x(CHOOSE_PRIORITY).click();
@@ -47,7 +45,6 @@ public class TestCasePage {
     }
 
     public void setConditions(String preConditions, String postConditions) {
-
         $x(PRECONDITIONS).sendKeys(preConditions);
         $x(POSTCONDITIONS).sendKeys(postConditions);
     }

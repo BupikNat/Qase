@@ -15,7 +15,6 @@ public class LoginPage {
     }
 
     public void login(String user, String password) {
-
         $(USER).setValue(user);
         $(PASSWORD).setValue(password);
         $(byText(BUTTON_SIGN_IN)).click();
