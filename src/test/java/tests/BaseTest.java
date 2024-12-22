@@ -11,7 +11,6 @@ import pages.ProjectsPage;
 import pages.TestCasePage;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 
 public class BaseTest {
 
@@ -25,6 +24,7 @@ public class BaseTest {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");  //можно прописать только через опции Selenium, в Селениде нет
+        options.addArguments("--disable-notifications");
         Configuration.browserCapabilities = options;
         Configuration.browser = "chrome";  //Указывается браузер
         Configuration.headless = false;  //выключаются заголовки
@@ -36,11 +36,10 @@ public class BaseTest {
         //WebDriver driver = new ChromeDriver();
         //setWebDriver(driver);
 
-
         loginPage = new LoginPage();
         projectsPage = new ProjectsPage();
         testCasePage = new TestCasePage();
-        testCaseTest = new CreateTestCaseTest();
+        testCaseTest = new CreateTestCaseTest(testCasePage);
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)

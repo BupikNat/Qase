@@ -1,10 +1,6 @@
 package tests;
 
 import org.testng.annotations.Test;
-import pages.LoginPage;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class ProjectTest extends BaseTest {
 
@@ -16,6 +12,7 @@ public class ProjectTest extends BaseTest {
         projectsPage.clickOnCreateNewProjectButton();
         projectsPage.addProject("Nataly");
         testCaseTest.createTestCase();
+        projectsPage.openProjectsPage();
         projectsPage.removeProject("Nataly");
     }
 }

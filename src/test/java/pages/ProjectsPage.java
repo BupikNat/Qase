@@ -1,14 +1,17 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProjectsPage {
+
+    private static final String PROJECT_NAME = "//*[@id='project-name']",
+            PROJECTS_LINK = "//a[@href='/projects']",
+            REMOVE_BUTTON = "[data-testid=remove]",
+            DELETE_PROJECT_BUTTON = "//button[.//span[text()='Delete project']]";
+
 
     public void openPage() {
         open("projects");
@@ -23,10 +26,14 @@ public class ProjectsPage {
     }
 
     public void addProject (String newProjectName) {
-        $x("//*[@id='project-name']").sendKeys(newProjectName);
+        $x(PROJECT_NAME).sendKeys(newProjectName);
         $(byText("Public")).click();
         $(byText("Create project")).click();
         $(byText("Nataly")).shouldBe(Condition.visible);
+    }
+
+    public void openProjectsPage() {
+        $x(PROJECTS_LINK).click();
     }
 
     public void removeProject(String projectName) {
@@ -35,7 +42,7 @@ public class ProjectsPage {
                 .ancestor("tr")
                 .find("button[aria-label='Open action menu']")
                 .click();
-        $("[data-testid=remove]").click();
-        $x("//button[.//span[text()='Delete project']]").click();
+        $(REMOVE_BUTTON).click();
+        $x(DELETE_PROJECT_BUTTON).click();
     }
 }
