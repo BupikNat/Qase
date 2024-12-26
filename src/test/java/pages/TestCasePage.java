@@ -21,9 +21,7 @@ public class TestCasePage {
             PRECONDITIONS = "//input[@id='0-preconditions']",
             POSTCONDITIONS = "//input[@id='0-postconditions']",
             ADD_STEP_BUTTON = "//*[text()=' Add step']",
-            STEP_ACTION = "//*[@id=\"application-content\"]/div/div[2]/form/div[1]/div[14]/div[1]/div[1]/div/div/div[2]/div/div[1]/input",
-            DATA = "//*[@id=\"application-content\"]/div/div[2]/form/div[1]/div[14]/div[1]/div[1]/div/div/div[2]/div/div[2]/input",
-            EXPACTED_RESULT = "//*[@id=\"application-content\"]/div/div[2]/form/div[1]/div[14]/div[1]/div[1]/div/div/div[2]/div/div[3]/input",
+            STEP_ACTION = "//*[text() = '1']//following::input[@required and @value]",
             SAVE_BUTTON = "//*[text()='Save']",
             CREATED_CASE_NAME = "//a[@href='/case/NATALY-1']";
 
@@ -49,11 +47,9 @@ public class TestCasePage {
         $x(POSTCONDITIONS).sendKeys(postConditions);
     }
 
-    public void addSteps(String step1, String data1, String result1) {
+    public void addSteps(String step1) {
         $x(ADD_STEP_BUTTON).click();
         $x(STEP_ACTION).sendKeys(step1);
-        $x(DATA).sendKeys(data1);
-        $x(EXPACTED_RESULT).sendKeys(result1);
     }
 
     public void clickOnSaveButton() {

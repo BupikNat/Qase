@@ -12,7 +12,7 @@ public class CreateTestCaseTest extends BaseTest{
         testCasePage.clickOnCaseButton();
         testCasePage.setupTestCase("Case_1");
         testCasePage.setConditions("Not", "Not");
-        testCasePage.addSteps("Some step 1", "Do something", "some result");
+        testCasePage.addSteps("Some step 1");
         testCasePage.clickOnSaveButton();
         testCasePage.testCaseIsCreated();
     }
